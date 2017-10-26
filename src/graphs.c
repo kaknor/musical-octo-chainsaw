@@ -27,14 +27,13 @@ int *init_diag(size_t m)
       // low
       m,
       // lower right
-      m + 1   
+      m + 1
     };
   for (size_t i = 0; i < 9; i++)
     diag[i] = d[i];
   return diag;
 }
 
-//tester des bails avec des additions de tableaux etc...
 int *diag(int x, struct graph *g)
 {
   int m = g->m;
@@ -71,7 +70,7 @@ int cost(int x, int y, struct graph *g)
   if (x == y)
     return 0;
   /* g->diag changer par map_get_floor */
-  int *d = g->diag(x, g); 
+  int *d = g->diag(x, g)
   int *g_mat = g->mat;
   for (size_t i = 0; i < 9; i++)
     {
@@ -116,8 +115,8 @@ int edge_cost(int x, struct graph *g)
 {
   size_t i = get_i(x, g);
   size_t j = get_j(x, i, g);
-  /* enum floortype t = map_get_floor(g->mat, i, j); */
-  enum floortype t = test_map_get_floor(g, i, j);
+  enum floortype t = map_get_floor(g->mat, i, j);
+  /* enum floortype t = test_map_get_floor(g, i, j); */
   return (t == ROAD) * 1
     + (t == GRASS) * 2
     + (t == BLOCK) * g->inf
@@ -128,8 +127,8 @@ int edge_cost(int x, struct graph *g)
 int cost_char(int x, int y, struct graph *g)
 {
   if (x == y)
-    return 0;  
-  int *d = g->diag(x, g); 
+    return 0;
+  int *d = g->diag(x, g);
   for (size_t i = 0; i < 9; i++)
     {
       if (d[i] == y)
@@ -141,12 +140,12 @@ int cost_char(int x, int y, struct graph *g)
   free(d);
   /* INF */
   return g->inf;
-  
 }
 
 /* DEAD CODE */
 struct graph *init_graph(size_t n, size_t m, int inf/* , size_t g_type */)
 {
+  /* UNAUTHORIZED FUNCTION  CALLOC */
   struct graph *g = calloc(n * m, sizeof (struct graph));
   if (!g)
     {
@@ -171,7 +170,7 @@ void print_graph(struct graph g)
 {
   size_t c = 0;
   /* la ou la genericte prends place */
-  int *g_mat = g.mat; 
+  int *g_mat = g.mat;
   for (size_t i = 0; i < g.size; i++)
     {
       if (c > g.m - 1)

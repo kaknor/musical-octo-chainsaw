@@ -3,13 +3,31 @@
 #define MAXSPEED 0.06
 #define MAXSPEED2 0.015
 
-struct stack *traj = NULL;//trajectoire
+struct context =
+  {
+    struct stack *traj;
+    struct graph *g;
+    /* sommet courant */
+    int curr;
+    /* sommet a atteindre */
+    int next;
+    /* sommet de depart */
+    int start;
+    /* sommet final */
+    int finish;
+  };
+
+struct context *g_context = NULL;
 
 
 enum move update(struct car *car)
 {
-  if (!g_list)
-    dijkstra(car->map);//TODO:ici tu passe les bon argument et tu stoke tes data dans *traj dans ta fonction directement
+  if (!g_context)
+    {
+      g_context->g = init_graph(c->map->)
+      dijkstra(car->map);//TODO:ici tu passe les bon argument et tu stoke tes data dans *traj dans ta fonction directement
+      g_context->traj = get_path(pr, g->start, g->finish, sizeof (int));
+    }
   return choose_action(car);
 }
 

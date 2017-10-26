@@ -15,7 +15,6 @@
 
 /* int (*)(int x, int y, struct graph *g)[2] = */
 /* { */
-  
 /* }; */
 
 struct graph

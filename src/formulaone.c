@@ -3,6 +3,8 @@
 #define MAXSPEED 0.06
 #define MAXSPEED2 0.015
 
+#define INF 2000000
+
 struct context =
   {
     struct stack *traj;
@@ -24,8 +26,15 @@ enum move update(struct car *car)
 {
   if (!g_context)
     {
-      g_context->g = init_graph(c->map->)
-      dijkstra(car->map);//TODO:ici tu passe les bon argument et tu stoke tes data dans *traj dans ta fonction directement
+      /* pas sur si c'est height ou width */
+      g_context->g = init_graph(c->map->width, c->map->height, INF);
+      g_context->g->mat = car->map;
+      int *pred = malloc(sizeof (int) * g_context->size);
+      int *ppd = malloc(sizeof (int) * g_context->size);
+      int s_x = map_get_start_x(car->map);
+      int s_y = map_get_start_y(car->map);
+      g_context->start = coord(s_x, s_y, );
+      dijkstra(car->map->start.x, , g, ppd, pred);//TODO:ici tu passe les bon argument et tu stoke tes data dans *traj dans ta fonction directement
       g_context->traj = get_path(pr, g->start, g->finish, sizeof (int));
     }
   return choose_action(car);

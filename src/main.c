@@ -20,7 +20,7 @@ int main(void)
   /* size_t size = sizeof (char); */
   /* void *map = char_test_lines; */
 
-  
+
   /* changer inf du graph */
   struct graph *g = init_graph(n, m, 2000000);
   if (g->mat)
